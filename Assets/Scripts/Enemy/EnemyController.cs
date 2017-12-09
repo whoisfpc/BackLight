@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
 
     private float maxDistance;
     private bool gotoEnd;
+    private bool turnBack;
+    private PolyNavAgent agent;
 
 
     // Use this for initialization
@@ -20,39 +22,44 @@ public class EnemyController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         maxDistance = Vector2.Distance(startPoint.position, endPoint.position);
         gotoEnd = true;
+        turnBack = false;
+        agent = GetComponent<PolyNavAgent>();
+        agent.SetDestination(endPoint.position, ReachEnd);
+    }
+
+    private void ReachEnd(bool reach)
+    {
+        if (reach)
+        {
+            gotoEnd = false;
+            turnBack = true;
+        }
+    }
+
+    private void ReachStart(bool reach)
+    {
+        if (reach)
+        {
+            gotoEnd = true;
+            turnBack = true;
+        }
     }
 
     // Update is called once per frame
     private void Update()
     {
-        var pos = transform.position;
-        float dis;
-        if (gotoEnd)
+        if (turnBack)
         {
-            dis = Vector2.Distance(startPoint.position, pos);
+            turnBack = false;
+            if (gotoEnd)
+            {
+                agent.SetDestination(endPoint.position, ReachEnd);
+            }
+            else
+            {
+                agent.SetDestination(startPoint.position, ReachStart);
+            }
         }
-        else
-        {
-            dis = Vector2.Distance(endPoint.position, pos);
-        }
-        // turn
-        if (dis >= maxDistance)
-        {
-            gotoEnd = !gotoEnd;
-        }
-
-        Vector2 dir;
-        if (gotoEnd)
-        {
-            dir = endPoint.position - pos;
-        }
-        else
-        {
-            dir = startPoint.position - pos;
-        }
-        dir.Normalize();
-
-        Move(dir);
     }
 
     private void Move(Vector2 dir)
