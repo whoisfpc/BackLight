@@ -76,4 +76,12 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("player be catched!!!!!!");
+        }
+    }
 }
