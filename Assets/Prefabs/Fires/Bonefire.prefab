@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 4159751985432390}
   - component: {fileID: 212253545427535906}
   - component: {fileID: 61245449081356788}
+  - component: {fileID: 114801241574316562}
   m_Layer: 1
   m_Name: "\u77F3\u5934"
   m_TagString: Untagged
@@ -104,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1790410291746928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 1.24, z: 0}
+  m_LocalPosition: {x: -0.03, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4777219743978118}
@@ -129,7 +130,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286277827906136}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.044935267, w: -0.99898994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -142,7 +143,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870463132735498}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.044691842, w: -0.99900085}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -155,8 +156,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314998700683628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.5, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4192857519816948}
@@ -357,14 +358,14 @@ MonoBehaviour:
   light2DType: 0
   SortOrderID: -1
   strokeRender: 0
-  LightRadius: 20
+  LightRadius: 16.613
   Segments: 9
   Layer:
     serializedVersion: 2
     m_Bits: 1
   useEvents: 0
   objectsWithinSight: 1
-  intelliderConvex: 1
+  intelliderConvex: 0
   recalculateNormals: 0
   flipXYtoXZ: 0
   debugLines: 0
@@ -409,7 +410,7 @@ MonoBehaviour:
   light2DType: 3
   SortOrderID: -1
   strokeRender: 0
-  LightRadius: 20
+  LightRadius: 11.586
   Segments: 9
   Layer:
     serializedVersion: 2
@@ -427,6 +428,20 @@ MonoBehaviour:
   staticScene: 1
   doNotRenderMesh: 1
   lastLight2DType: 3
+--- !u!114 &114801241574316562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902694130242868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 0
+  shapeType: 1
+  extraOffset: 1
 --- !u!114 &114816427745283972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,7 +533,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 152468267
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6ce535c83d87fea4aa8f6ae6fd927442, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

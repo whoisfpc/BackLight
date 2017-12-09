@@ -106,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 1053990806942890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4451188756376716}
   m_RootOrder: 0
@@ -145,7 +145,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1251576565241582}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0022083821, w: -0.99999756}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -215,7 +215,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d52d9438d1a39354ca4d3543b8512e7f, type: 2}
+  - {fileID: 2100000, guid: 77b22b8ea0ef7e14b9f346a1f73b20a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -281,9 +281,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.18, y: -0.16}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.25
 --- !u!95 &95161978247849390
 Animator:
   serializedVersion: 3
@@ -373,7 +373,7 @@ MonoBehaviour:
   light2DType: 3
   SortOrderID: -1
   strokeRender: 0
-  LightRadius: 20
+  LightRadius: 14.588
   Segments: 9
   Layer:
     serializedVersion: 2
@@ -443,7 +443,7 @@ MonoBehaviour:
   SolidColor: 0
   LightColor: {r: 0, g: 0, b: 0, a: 0}
   Intensity: 1
-  LightMaterial: {fileID: 2100000, guid: d52d9438d1a39354ca4d3543b8512e7f, type: 2}
+  LightMaterial: {fileID: 2100000, guid: 77b22b8ea0ef7e14b9f346a1f73b20a7, type: 2}
   light2DType: 0
   SortOrderID: -1
   strokeRender: 0

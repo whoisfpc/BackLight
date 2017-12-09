@@ -27,8 +27,6 @@ public class EnemyController : MonoBehaviour
     public Animator anim;
     public Transform points;
     public RouteMap route;
-
-    public Transform target;
     public Transform spot;
 
     private bool turnBack;
@@ -37,6 +35,8 @@ public class EnemyController : MonoBehaviour
     private StateMachine stateMachine;
     private Vector3 resetPosition;
     private Quaternion resetSpotRotation;
+    private Transform target;
+    
 
     // Use this for initialization
     private void Start()
@@ -195,6 +195,7 @@ public class EnemyController : MonoBehaviour
     {
         if (go.CompareTag("Player"))
         {
+            target = go.transform;
             stateMachine.FireEvent(EnemyEvent.PlayerEnterView);
         }
     }

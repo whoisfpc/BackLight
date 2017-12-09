@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: f2821480888e26f4da1365cd09ccbd10
-timeCreated: 1512832577
+guid: f1b83130c160adf408b1d2ad0a4d0244
+timeCreated: 1512850001
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: "\u6805\u680F1_0"
-    21300002: "\u6805\u680F1_1"
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -42,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -78,35 +76,7 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: "\u6805\u680F1_0"
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 53.5
-        width: 103
-        height: 53.5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: "\u6805\u680F1_1"
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0.5
-        width: 103
-        height: 53.5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
     physicsShape: []
   spritePackingTag: 
