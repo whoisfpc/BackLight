@@ -23,8 +23,36 @@ public class PlayerController : MonoBehaviour
         Move(dir);
     }
 
+    public void Reset()
+    {
+        Debug.Log("player reset");
+    }
+
     private void Move(Vector2 dir)
     {
         rb2d.velocity = dir * speed;
+    }
+
+    public void myListener_onEnter(GameObject go)
+    {
+        //Filter by Hash
+        if (gameObject.GetHashCode() == go.GetHashCode())
+        {
+            print(go.name + " --> OnEnter() event");
+        }
+    }
+
+    public void myListener_onExit(GameObject go)
+    {
+        if (gameObject.GetHashCode() == go.GetHashCode())
+        {
+            print(go.name + " --> OnExit() event");
+        }
+    }
+
+    public void myListener_onInside(GameObject go)
+    {
+        if (gameObject.GetHashCode() == go.GetHashCode())
+            print(go.name + " --> OnInside() event");
     }
 }
