@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     public void Reset()
     {
-        Debug.Log("player reset");
+        currentSpeed = speed;
     }
 
     private void Move(Vector2 dir)
@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        Debug.Log("on enter: " + go.name + ", " + light.name);
         currentSpeed = speed * speedRatioInLight;
     }
 
@@ -54,7 +53,6 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        Debug.Log("on exit: " + go.name + ", " + light.name);
         currentSpeed = speed;
     }
 }

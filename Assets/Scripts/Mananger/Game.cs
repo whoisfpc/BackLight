@@ -5,17 +5,21 @@ using DynamicLight2D;
 
 public class Game : MonoBehaviour
 {
+    public static Game instance;
 
     private Vector3 startPoint;
     private Vector3 endPoint;
 
     private PlayerController mainPlayer;
+    private List<EnemyController> enemys = new List<EnemyController>();
 
     private void Awake()
     {
+        instance = this;
         mainPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
         endPoint = GameObject.FindGameObjectWithTag("EndPoint").transform.position;
+        enemys.AddRange(FindObjectsOfType<EnemyController>());
         RegisterEvent();
     }
 
@@ -34,6 +38,11 @@ public class Game : MonoBehaviour
     public void Restart()
     {
         mainPlayer.transform.position = startPoint;
+        mainPlayer.Reset();
+        foreach (var enemy in enemys)
+        {
+            enemy.Reset();
+        }
     }
 
     // Use this for initialization

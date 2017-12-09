@@ -34,10 +34,14 @@ public class EnemyController : MonoBehaviour
     private int startPointIndex;
     private PolyNavAgent agent;
     private StateMachine stateMachine;
+    private Vector3 resetPosition;
+    private Quaternion resetSpotRotation;
 
     // Use this for initialization
     private void Start()
     {
+        resetPosition = transform.position;
+        resetSpotRotation = spot.transform.rotation;
         turnBack = false;
         startPointIndex = 1;
         agent = GetComponent<PolyNavAgent>();
@@ -63,6 +67,15 @@ public class EnemyController : MonoBehaviour
             .SetStateMap(EnemyState.Catching, catchingState);
         stateMachine.Boost(EnemyState.Patrol);
 
+    }
+
+    public void Reset()
+    {
+        transform.position = resetPosition;
+        spot.transform.rotation = resetSpotRotation;
+        turnBack = false;
+        startPointIndex = 1;
+        stateMachine.Reset();
     }
 
     private void StartPatrol()
@@ -146,6 +159,23 @@ public class EnemyController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("player be catched!!!!!!");
+            Game.instance.Restart();
+        }
+    }
+
+    public void OnLightEnter(GameObject go)
+    {
+        if (go.CompareTag("Player"))
+        {
+            stateMachine.FireEvent(EnemyEvent.PlayerEnterView);
+        }
+    }
+
+    public void OnLightExit(GameObject go)
+    {
+        if (go.CompareTag("Player"))
+        {
+            stateMachine.FireEvent(EnemyEvent.PlayerExitView);
         }
     }
 
@@ -157,6 +187,7 @@ public class EnemyController : MonoBehaviour
         private Dictionary<EnemyState, State> stateMap;
         private State nextState;
         private bool needSwitch = false;
+        private State initState;
 
         public StateMachine()
         {
@@ -176,7 +207,14 @@ public class EnemyController : MonoBehaviour
 
         public void Boost(EnemyState initState)
         {
-            currentState = stateMap[initState];
+            this.initState = currentState = stateMap[initState];
+            OnEnter();
+        }
+
+        public void Reset()
+        {   
+            OnExit();
+            currentState = this.initState;
             OnEnter();
         }
 
