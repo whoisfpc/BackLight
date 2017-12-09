@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4180836665299852}
   - component: {fileID: 212804744195487618}
+  - component: {fileID: 95161978247849390}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -105,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 1053990806942890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4451188756376716}
   m_RootOrder: 0
@@ -283,6 +284,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!95 &95161978247849390
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053990806942890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9c3f2e6b9bfd374a9a8ed0f68753906, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114226477615642024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -294,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c641034fe1e68439d654f733047838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 95161978247849390}
   points: {fileID: 0}
   route: 0
   target: {fileID: 0}
@@ -311,12 +330,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DDLEvent_OnEnterFOV:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114226477615642024}
+        m_MethodName: OnLightEnter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: DynamicLight2D.DynamicLightEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   DDLEvent_OnExitFOV:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114226477615642024}
+        m_MethodName: OnLightExit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: DynamicLight2D.DynamicLightEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   DDLEvent_InsideFOV:
@@ -337,7 +378,7 @@ MonoBehaviour:
   Layer:
     serializedVersion: 2
     m_Bits: 513
-  useEvents: 0
+  useEvents: 1
   objectsWithinSight: 0
   intelliderConvex: 1
   recalculateNormals: 0
@@ -361,17 +402,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cc6a4987f7c684798156c56d545838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 10
   mass: 1
   stoppingDistance: 0.1
   slowingDistance: 1
   decelerationRate: 0
-  closerPointOnInvalid: 0
+  closerPointOnInvalid: 1
   rotateTransform: 0
   rotateSpeed: 350
   sendMessages: 1
   debugPath: 1
-  avoidRadius: 1
+  avoidRadius: 0
 --- !u!114 &114861723480178170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,8 +499,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 744598ca1fec73e4aa5c9f4d22e4ec7e, type: 3}
-  m_Color: {r: 0.15862083, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 28f4acde434f11449abc4eea09f18b52, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

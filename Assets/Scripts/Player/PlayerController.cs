@@ -6,6 +6,7 @@ using DynamicLight2D;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    public Animator anim;
     public float speed = 5f;
     [Range(0.1f, 1f)]
     public float speedRatioInLight = 0.5f;
@@ -36,6 +37,33 @@ public class PlayerController : MonoBehaviour
     private void Move(Vector2 dir)
     {
         rb2d.velocity = dir * currentSpeed;
+        var vel = rb2d.velocity;
+        if (vel == Vector2.zero)
+        {
+            anim.SetTrigger("MoveStop");
+        }
+        else if (Mathf.Abs(vel.x) > Mathf.Abs(vel.y))
+        {
+            if (vel.x > 0)
+            {
+                anim.SetTrigger("MoveRight");
+            }
+            else
+            {
+                anim.SetTrigger("MoveLeft");
+            }
+        }
+        else
+        {
+            if (vel.y > 0)
+            {
+                anim.SetTrigger("MoveUp");
+            }
+            else
+            {
+                anim.SetTrigger("MoveDown");
+            }
+        }
     }
 
     public void OnEnterLight(GameObject go, DynamicLight light)

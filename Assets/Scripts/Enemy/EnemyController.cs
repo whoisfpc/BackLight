@@ -23,7 +23,8 @@ public class EnemyController : MonoBehaviour
         PlayerEnterView,
         PlayerExitView
     }
-    
+
+    public Animator anim;
     public Transform points;
     public RouteMap route;
 
@@ -152,6 +153,33 @@ public class EnemyController : MonoBehaviour
 			float newZ = Mathf.MoveTowardsAngle(spot.localEulerAngles.z, rot, agent.rotateSpeed * Time.deltaTime);
 			spot.localEulerAngles = new Vector3(spot.localEulerAngles.x, spot.localEulerAngles.y, newZ);
 		}
+        var vel = agent.movingDirection;
+        if (vel == Vector2.zero)
+        {
+            anim.SetTrigger("MoveStop");
+        }
+        else if (Mathf.Abs(vel.x) > Mathf.Abs(vel.y))
+        {
+            if (vel.x > 0)
+            {
+                anim.SetTrigger("MoveRight");
+            }
+            else
+            {
+                anim.SetTrigger("MoveLeft");
+            }
+        }
+        else
+        {
+            if (vel.y > 0)
+            {
+                anim.SetTrigger("MoveUp");
+            }
+            else
+            {
+                anim.SetTrigger("MoveDown");
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
