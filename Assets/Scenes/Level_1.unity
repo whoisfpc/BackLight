@@ -152,7 +152,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -225,35 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertPolygon: 1
   shapeType: 1
-  extraOffset: 0
---- !u!1 &489040197
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 489040198}
-  m_Layer: 0
-  m_Name: EndPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &489040198
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 489040197}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.88, y: 4.15, z: 0.19923757}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  extraOffset: 1.2
 --- !u!1001 &695786271
 Prefab:
   m_ObjectHideFlags: 0
@@ -372,9 +344,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generateOnUpdate: 1
   navObstacles:
-  - {fileID: 994527632}
   - {fileID: 1512682272}
   - {fileID: 20404162}
+  - {fileID: 994527632}
   - {fileID: 1048576480}
   inflateRadius: 0.1
 --- !u!1 &994527628
@@ -417,7 +389,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -490,7 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertPolygon: 1
   shapeType: 1
-  extraOffset: 0
+  extraOffset: 1.2
 --- !u!1 &1048576476
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +503,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -604,7 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertPolygon: 1
   shapeType: 1
-  extraOffset: 0
+  extraOffset: 1.2
 --- !u!1 &1061366736
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +588,7 @@ GameObject:
   - component: {fileID: 1061366739}
   - component: {fileID: 1061366738}
   - component: {fileID: 1061366737}
+  - component: {fileID: 1061366741}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -685,6 +658,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1061366741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1061366736}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d8238cc53530b64fbb7828c3d3bb591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1359233849}
+  damping: 1
+  lookAheadFactor: 3
+  lookAheadReturnSpeed: 0.5
+  lookAheadMoveThreshold: 0.1
+--- !u!4 &1359233849 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4054304171103978, guid: 3ccd958925ee79641af25b6b154ce58e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1417142224}
 --- !u!1001 &1417142224
 Prefab:
   m_ObjectHideFlags: 0
@@ -732,11 +726,11 @@ Prefab:
     - target: {fileID: 50683646979296714, guid: 3ccd958925ee79641af25b6b154ce58e,
         type: 2}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1418496119362186, guid: 3ccd958925ee79641af25b6b154ce58e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ccd958925ee79641af25b6b154ce58e, type: 2}
@@ -781,7 +775,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -854,35 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertPolygon: 1
   shapeType: 1
-  extraOffset: 0
---- !u!1 &1670565379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1670565380}
-  m_Layer: 0
-  m_Name: StartPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1670565380
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1670565379}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.69, y: 8.7, z: 0.19923757}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  extraOffset: 1.2
 --- !u!4 &2014168261 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4178152447882166, guid: 8f140b8102a381c4eacd80ea71950a35,
