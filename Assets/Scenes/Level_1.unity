@@ -403,6 +403,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 50683646979296714, guid: 3ccd958925ee79641af25b6b154ce58e,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50683646979296714, guid: 3ccd958925ee79641af25b6b154ce58e,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ccd958925ee79641af25b6b154ce58e, type: 2}
   m_IsPrefabParent: 0
@@ -485,7 +495,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &1695379881
 CircleCollider2D:
   m_ObjectHideFlags: 0
