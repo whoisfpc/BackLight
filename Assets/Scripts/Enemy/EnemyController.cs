@@ -5,55 +5,75 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyController : MonoBehaviour
 {
-    public Transform startPoint;
-    public Transform endPoint;
+    public Transform points;
+    public RouteMap route;
+    public enum RouteMap {Trunback, Loop};
 
-    private bool gotoEnd;
     private bool turnBack;
+    private int startPointIndex;
     private PolyNavAgent agent;
-
 
     // Use this for initialization
     private void Start()
     {
-        gotoEnd = true;
         turnBack = false;
+        startPointIndex = 1;
         agent = GetComponent<PolyNavAgent>();
-        agent.SetDestination(endPoint.position, ReachEnd);
-    }
-
-    private void ReachEnd(bool reach)
-    {
-        if (reach)
+        
+        switch (route)
         {
-            gotoEnd = false;
-            turnBack = true;
+           case RouteMap.Trunback:
+                agent.SetDestination(points.GetChild(startPointIndex).position, TrunbackReachPoint);
+               break;
+           case RouteMap.Loop:
+                agent.SetDestination(points.GetChild(startPointIndex).position, LoopReachPoint);
+               break;
         }
     }
 
-    private void ReachStart(bool reach)
+    private void TrunbackReachPoint(bool reach)
     {
-        if (reach)
+        if(reach)
         {
-            gotoEnd = true;
-            turnBack = true;
+            if( startPointIndex == points.childCount-1 )
+            {
+                turnBack = true;
+            }
+
+            if( startPointIndex == 0 )
+            {
+                turnBack = false;
+            }
+
+            if( turnBack == false )
+            {
+                startPointIndex += 1;
+            }
+            else
+            {
+                startPointIndex -= 1;
+            }
+
+            agent.SetDestination(points.GetChild(startPointIndex).position, TrunbackReachPoint);
+        }
+    }
+
+    private void LoopReachPoint(bool reach)
+    {
+        if(reach)
+        {
+            startPointIndex += 1;
+            if( startPointIndex == points.childCount )
+            {
+                startPointIndex = 0;
+            }
+
+            agent.SetDestination(points.GetChild(startPointIndex).position, LoopReachPoint);
         }
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (turnBack)
-        {
-            turnBack = false;
-            if (gotoEnd)
-            {
-                agent.SetDestination(endPoint.position, ReachEnd);
-            }
-            else
-            {
-                agent.SetDestination(startPoint.position, ReachStart);
-            }
-        }
     }
 }
