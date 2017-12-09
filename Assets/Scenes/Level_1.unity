@@ -417,11 +417,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generateOnUpdate: 1
   navObstacles:
-  - {fileID: 994527632}
   - {fileID: 1048576480}
-  - {fileID: 1512682272}
   - {fileID: 364774899}
+  - {fileID: 994527632}
   - {fileID: 20404162}
+  - {fileID: 1512682272}
   inflateRadius: 0.1
 --- !u!1 &994527628
 GameObject:
@@ -1003,7 +1003,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2130628937}
-  m_Layer: 0
+  - component: {fileID: 2130628938}
+  - component: {fileID: 2130628939}
+  m_Layer: 11
   m_Name: EndPoint
   m_TagString: EndPoint
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -1023,3 +1025,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2130628938
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2130628936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
+--- !u!114 &2130628939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2130628936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e69abffb9895734183d835388093a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
