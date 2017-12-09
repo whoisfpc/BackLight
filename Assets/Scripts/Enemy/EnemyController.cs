@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
     public RouteMap route;
 
     public Transform target;
+    public Transform spot;
 
     private bool turnBack;
     private int startPointIndex;
@@ -133,6 +134,11 @@ public class EnemyController : MonoBehaviour
 #endif
         stateMachine.ProcessSwitch();
         stateMachine.OnUpdate();
+        if (agent.movingDirection != Vector2.zero){
+			float rot = -Mathf.Atan2(agent.movingDirection.x, agent.movingDirection.y) * 180 / Mathf.PI;
+			float newZ = Mathf.MoveTowardsAngle(spot.localEulerAngles.z, rot, agent.rotateSpeed * Time.deltaTime);
+			spot.localEulerAngles = new Vector3(spot.localEulerAngles.x, spot.localEulerAngles.y, newZ);
+		}
     }
 
     private void OnTriggerEnter2D(Collider2D other)
