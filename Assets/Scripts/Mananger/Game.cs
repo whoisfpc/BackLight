@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DynamicLight2D;
 
 public class Game : MonoBehaviour
 {
@@ -15,6 +16,19 @@ public class Game : MonoBehaviour
         mainPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
         endPoint = GameObject.FindGameObjectWithTag("EndPoint").transform.position;
+        RegisterEvent();
+    }
+
+    private void RegisterEvent()
+    {
+        var bonefires = GameObject.FindGameObjectsWithTag("Bonefire");
+        foreach (var bonefire in bonefires)
+        {
+            var light = bonefire.GetComponent<DynamicLight>();
+            light.useEvents = true;
+            light.OnEnterFieldOfView += mainPlayer.OnEnterLight;
+            light.OnExitFieldOfView += mainPlayer.OnExitLight;
+        }
     }
 
     public void Restart()

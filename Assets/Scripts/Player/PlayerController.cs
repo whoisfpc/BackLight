@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DynamicLight2D;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -33,26 +34,21 @@ public class PlayerController : MonoBehaviour
         rb2d.velocity = dir * speed;
     }
 
-    public void myListener_onEnter(GameObject go)
+    public void OnEnterLight(GameObject go, DynamicLight light)
     {
-        //Filter by Hash
-        if (gameObject.GetHashCode() == go.GetHashCode())
+        if (go != gameObject)
         {
-            print(go.name + " --> OnEnter() event");
+            return;
         }
+        Debug.Log("on enter: " + go.name + ", " + light.name);
     }
 
-    public void myListener_onExit(GameObject go)
+    public void OnExitLight(GameObject go, DynamicLight light)
     {
-        if (gameObject.GetHashCode() == go.GetHashCode())
+        if (go != gameObject)
         {
-            print(go.name + " --> OnExit() event");
+            return;
         }
-    }
-
-    public void myListener_onInside(GameObject go)
-    {
-        if (gameObject.GetHashCode() == go.GetHashCode())
-            print(go.name + " --> OnInside() event");
+        Debug.Log("on exit: " + go.name + ", " + light.name);
     }
 }
