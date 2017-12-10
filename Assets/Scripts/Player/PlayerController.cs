@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float speedRatioInLight = 0.5f;
     private Rigidbody2D rb2d;
     private float currentSpeed;
+    public float inlightCount = 0;
 
     // Use this for initialization
     private void Start()
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public void Reset()
     {
         currentSpeed = speed;
+        inlightCount = 0;
     }
 
     private void Move(Vector2 dir)
@@ -72,7 +74,9 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        currentSpeed = speed * speedRatioInLight;
+        inlightCount++;
+        if (inlightCount > 0)
+            currentSpeed = speed * speedRatioInLight;
     }
 
     public void OnExitLight(GameObject go, DynamicLight light)
@@ -81,6 +85,9 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        currentSpeed = speed;
+        inlightCount--;
+        if (inlightCount < 0) inlightCount = 0;
+        if (inlightCount == 0)
+            currentSpeed = speed;
     }
 }

@@ -5,22 +5,11 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
-    public SceneField mainScene;
-    public SceneField level1Scene;
+    public SceneField nextScene;
 
-    private void Awake()
+    public void LoadNextScene()
     {
-        DontDestroyOnLoad(gameObject);
-    }
-
-    public void BackToMenu()
-    {
-        LoadScene(mainScene);
-    }
-
-    public void StartGame()
-    {
-        LoadScene(level1Scene);
+        LoadScene(nextScene);
     }
 
     public void Quit()
@@ -28,12 +17,12 @@ public class SceneController : MonoBehaviour
         Application.Quit();
     }
 
-    public void LoadScene(SceneField scene)
+    private void LoadScene(SceneField scene)
     {
         StartCoroutine(LoadingScene(scene));
     }
 
-    IEnumerator LoadingScene(SceneField scene)
+    private IEnumerator LoadingScene(SceneField scene)
     {
         Debug.Log("loading " + scene);
         AsyncOperation asyncOp = SceneManager.LoadSceneAsync(scene);

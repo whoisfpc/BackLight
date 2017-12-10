@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1825951352320432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.851046, y: -0.925418, z: 0}
+  m_LocalPosition: {x: 27, y: -9.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4180836665299852}
@@ -132,7 +132,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1036902686487594}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -145,7 +145,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1251576565241582}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0022083821, w: -0.99999756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -315,7 +315,6 @@ MonoBehaviour:
   anim: {fileID: 95161978247849390}
   points: {fileID: 0}
   route: 0
-  target: {fileID: 0}
   spot: {fileID: 4715669655719038}
 --- !u!114 &114529193900034706
 MonoBehaviour:
@@ -373,7 +372,7 @@ MonoBehaviour:
   light2DType: 3
   SortOrderID: -1
   strokeRender: 0
-  LightRadius: 14.588
+  LightRadius: 9.6
   Segments: 9
   Layer:
     serializedVersion: 2
@@ -402,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cc6a4987f7c684798156c56d545838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
+  maxSpeed: 6
   mass: 1
   stoppingDistance: 0.1
   slowingDistance: 1
@@ -447,7 +446,7 @@ MonoBehaviour:
   light2DType: 0
   SortOrderID: -1
   strokeRender: 0
-  LightRadius: 20
+  LightRadius: 11.865
   Segments: 9
   Layer:
     serializedVersion: 2

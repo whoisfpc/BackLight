@@ -213,10 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d5afa27f7b4144fa3eaef24633aad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainScene:
-    sceneAsset: {fileID: 102900000, guid: f3e05338d0b2b94429722277f3e090fc, type: 3}
-    sceneName: Main
-  level1Scene:
+  nextScene:
     sceneAsset: {fileID: 102900000, guid: b929b8e9bdb4e494b808c864b51bd0e3, type: 3}
     sceneName: Level_1
 --- !u!4 &677733262
@@ -556,7 +553,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1154422539}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 362, y: 192.5, z: 0}
+  m_LocalPosition: {x: 360, y: 298.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1810673236}
@@ -846,7 +843,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 677733261}
-        m_MethodName: StartGame
+        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
