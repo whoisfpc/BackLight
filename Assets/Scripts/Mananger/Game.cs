@@ -7,6 +7,9 @@ public class Game : MonoBehaviour
 {
     public static Game instance;
 
+    public GameObject SuccessPanel;
+    public GameObject FailPanel;
+
     private Vector3 startPoint;
 
     private PlayerController mainPlayer;
@@ -43,6 +46,18 @@ public class Game : MonoBehaviour
             enemy.Reset();
         }
         isStop = false;
+    }
+
+    public void Success()
+    {
+        Stop();
+        SuccessPanel.SetActive(true);
+    }
+
+    public void Fail()
+    {
+        Stop();
+        FailPanel.SetActive(true);
     }
 
     public void Stop()

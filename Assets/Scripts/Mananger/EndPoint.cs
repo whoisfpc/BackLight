@@ -12,7 +12,7 @@ public class EndPoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("game finish!!!!");
-            sceneController.LoadNextScene();
+            Game.instance.Success();
         }
     }
 }

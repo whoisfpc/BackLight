@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 32ff73e52155f0d438731be4faa5b60d
+timeCreated: 1512879861
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Original by fnkfrsh
+  fontNames:
+  - Original by fnkfrsh
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

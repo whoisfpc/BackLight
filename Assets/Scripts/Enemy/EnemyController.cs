@@ -202,7 +202,7 @@ public class EnemyController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("player be catched!!!!!!");
-            Game.instance.Restart();
+            Game.instance.Fail();
         }
     }
 
