@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     public float speedRatioInLight = 0.5f;
     private Rigidbody2D rb2d;
     private float currentSpeed;
-    public float inlightCount = 0;
+    private float inlightCount = 0;
+    private bool isStop = false;
 
     // Use this for initialization
     private void Start()
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (isStop) return;
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
         var dir = new Vector2(h, v);
@@ -34,6 +36,18 @@ public class PlayerController : MonoBehaviour
     {
         currentSpeed = speed;
         inlightCount = 0;
+        isStop = false;
+    }
+
+    public void Stop()
+    {
+        isStop = true;
+        Move(Vector2.zero);
+    }
+
+    public void Resume()
+    {
+        isStop = false;
     }
 
     private void Move(Vector2 dir)

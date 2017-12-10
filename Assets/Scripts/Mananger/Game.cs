@@ -8,17 +8,16 @@ public class Game : MonoBehaviour
     public static Game instance;
 
     private Vector3 startPoint;
-    private Vector3 endPoint;
 
     private PlayerController mainPlayer;
     private List<EnemyController> enemys = new List<EnemyController>();
+    private bool isStop = false;
 
     private void Awake()
     {
         instance = this;
         mainPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-        endPoint = GameObject.FindGameObjectWithTag("EndPoint").transform.position;
         enemys.AddRange(FindObjectsOfType<EnemyController>());
         RegisterEvent();
     }
@@ -43,6 +42,27 @@ public class Game : MonoBehaviour
         {
             enemy.Reset();
         }
+        isStop = false;
+    }
+
+    public void Stop()
+    {
+        mainPlayer.Stop();
+        foreach (var enemy in enemys)
+        {
+            enemy.Stop();
+        }
+        isStop = true;
+    }
+
+    public void Resume()
+    {
+        mainPlayer.Resume();
+        foreach (var enemy in enemys)
+        {
+            enemy.Resume();
+        }
+        isStop = false;
     }
 
     // Use this for initialization
@@ -58,6 +78,10 @@ public class Game : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Restart();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isStop) Resume(); else Stop();
         }
 #endif
     }

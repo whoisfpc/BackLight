@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
     private Vector3 resetPosition;
     private Quaternion resetSpotRotation;
     private Transform target;
+    private bool isStop = false;
     
 
     // Use this for initialization
@@ -77,6 +78,20 @@ public class EnemyController : MonoBehaviour
         turnBack = false;
         startPointIndex = 1;
         stateMachine.Reset();
+        isStop = false;
+    }
+
+    public void Stop()
+    {
+        isStop = true;
+        agent.Stop();
+        stateMachine.Stop();
+    }
+
+    public void Resume()
+    {
+        isStop = false;
+        stateMachine.Resume();
     }
 
     private void StartPatrol()
@@ -217,6 +232,7 @@ public class EnemyController : MonoBehaviour
         private State nextState;
         private bool needSwitch = false;
         private State initState;
+        private bool isStop = false;
 
         public StateMachine()
         {
@@ -244,23 +260,39 @@ public class EnemyController : MonoBehaviour
         {   
             OnExit();
             currentState = this.initState;
+            isStop = false;
+            OnEnter();
+        }
+        
+        public void Stop()
+        {
+            isStop = true;
+            OnExit();
+        }
+
+        public void Resume()
+        {
+            isStop = false;
             OnEnter();
         }
 
         private void OnEnter()
         {
+            if (isStop) return;
             if (currentState.onEnter != null)
                 currentState.onEnter();
         }
 
         private void OnExit()
         {
+            if (isStop) return;
             if (currentState.onExit != null)
                 currentState.onExit();
         }
 
         public void ProcessSwitch()
         {
+            if (isStop) return;
             if (!needSwitch)
                 return;
             needSwitch = false;
@@ -271,12 +303,14 @@ public class EnemyController : MonoBehaviour
 
         public void OnUpdate()
         {
+            if (isStop) return;
             if (currentState.onUpdate != null)
                 currentState.onUpdate();
         }
 
         public void FireEvent(EnemyEvent enemyEvent)
         {
+            if (isStop) return;
             if (map[currentState.enemyState].ContainsKey(enemyEvent))
             {
                 var nextEnemyState = map[currentState.enemyState][enemyEvent];
