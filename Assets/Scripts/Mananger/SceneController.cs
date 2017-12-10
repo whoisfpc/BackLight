@@ -24,7 +24,6 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator LoadingScene(SceneField scene)
     {
-        Debug.Log("loading " + scene);
         AsyncOperation asyncOp = SceneManager.LoadSceneAsync(scene);
         while (!asyncOp.isDone)
         {

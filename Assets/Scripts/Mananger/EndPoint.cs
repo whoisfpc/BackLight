@@ -11,7 +11,6 @@ public class EndPoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("game finish!!!!");
             Game.instance.Success();
         }
     }

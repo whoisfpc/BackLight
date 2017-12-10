@@ -201,13 +201,13 @@ public class EnemyController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("player be catched!!!!!!");
             Game.instance.Fail();
         }
     }
 
     public void OnLightEnter(GameObject go)
     {
+        if (isStop) return;
         if (go.CompareTag("Player"))
         {
             target = go.transform;
@@ -217,6 +217,7 @@ public class EnemyController : MonoBehaviour
 
     public void OnLightExit(GameObject go)
     {
+        if (isStop) return;
         if (go.CompareTag("Player"))
         {
             stateMachine.FireEvent(EnemyEvent.PlayerExitView);

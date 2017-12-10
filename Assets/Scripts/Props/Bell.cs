@@ -22,7 +22,6 @@ public class Bell : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("bell!!!bell!!!");
             bellSource.Play();
         }
     }
